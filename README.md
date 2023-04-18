@@ -1,15 +1,22 @@
-### Как запустить проект:
+### API для Yatube
 
-Клонировать репозиторий и перейти в него в командной строке:
-
-```
-git clone https://github.com/yandex-praktikum/kittygram2plus.git
-```
+Вся логика описана в приложении API
 
 ```
-cd kittygram2plus
+Описаны сериализаторы для моделей и вьюфункции. 
+Post, Group, Comment, Follow.
 ```
 
+```
+Описаны следующие урл адреса:
+'api/v1/posts'
+'api/v1/groups'
+'api/v1/posts/(?P<post_id>\d+)/comments'
+'api/v1/follow'
+```
+
+###  Как работать с проектом.
+Клонировать репрозиторий.
 Cоздать и активировать виртуальное окружение:
 
 ```
