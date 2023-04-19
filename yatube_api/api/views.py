@@ -4,16 +4,18 @@ from rest_framework import viewsets, permissions, filters
 
 from posts.models import Post, Group
 
-from api.serializers import (PostSerializer,
-                             CommentSerializer,
-                             GroupSerializer,
-                             FollowSerializer)
+from api.serializers import (
+    PostSerializer,
+    CommentSerializer,
+    GroupSerializer,
+    FollowSerializer)
 from api.permissions import IsAuthorOrReadOnly
 
 
 class PostViewSet(viewsets.ModelViewSet):
     """
-    Вьюсет работает с сериализатором PostSerializer и моделью Post.
+    CRUD для работы с постами.
+
     Пермишен дает два варианта прав.
     1) Только аутентифицированные пользователи имеют доступ к API.
     2) Полный доступ к объекту поста, изменение, удаление только автору.
@@ -31,7 +33,7 @@ class PostViewSet(viewsets.ModelViewSet):
 
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
-    """Вьюсет работает с сериализатором GroupSerializer и моделью Group."""
+    """CRUD для работы с группами."""
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [
@@ -41,7 +43,8 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
 
 class CommentViewSet(viewsets.ModelViewSet):
     """
-    Вьюсет работает с сериализатором CommentSerializer и моделью Comment.
+    CRUD для работы с комментариями.
+
     Пермишен дает два варианта прав.
     1) Только аутентифицированные пользователи имеют доступ к API.
     2) Полный доступ к объекту комментария, изменение, удаление только автору.
@@ -68,7 +71,8 @@ class CommentViewSet(viewsets.ModelViewSet):
 
 class FollowViewSet(viewsets.ModelViewSet):
     """
-    Вьюсет работает с сериализатором FollowSerializer и моделью Follow..
+    CRUD для работы с подписками.
+
     Только аутентифицированные пользователи имеют доступ к API.
     """
     serializer_class = FollowSerializer
